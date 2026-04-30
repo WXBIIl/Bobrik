@@ -46,7 +46,7 @@ public class BattleManager : MonoBehaviour
             }
             if (boss.hp <= 0)
             {
-                SceneManager.LoadScene("Round_2");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
 
             yield return new WaitForSeconds(0.8f);
