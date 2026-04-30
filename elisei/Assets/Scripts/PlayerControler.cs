@@ -15,7 +15,7 @@ public class PlayerController : Base
 
     void UpdateUI()
     {
-        sequenceText.text = "Очередь: " + string.Join(" - ", mySequence);
+        sequenceText.text = "Очередь: " + string.Join("   ", mySequence);
     }
 
     public void Clear()

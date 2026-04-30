@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class BattleManager : MonoBehaviour
@@ -39,6 +40,11 @@ public class BattleManager : MonoBehaviour
             playerHPText.text = "Игрок: " + player.hp;
             bossHPText.text = "Босс: " + boss.hp;
 
+            if (player.hp <= 0)
+            {
+                SceneManager.LoadScene("Lose");
+            }
+
             yield return new WaitForSeconds(0.8f);
 
             player.myImage.sprite = player.normalSprite;
@@ -51,13 +57,13 @@ public class BattleManager : MonoBehaviour
     {
         if (p == GameAction.Attack || p == GameAction.Jump)
         {
-            if (b != GameAction.Block) { boss.hp -= 20; StartCoroutine(boss.FlashRed()); }
-            else boss.hp -= 5;
+            if (b != GameAction.Block) { boss.hp -= 40; StartCoroutine(boss.FlashRed()); }
+            else boss.hp -= 15;
         }
         if (b == GameAction.Attack || b == GameAction.Jump)
         {
-            if (p != GameAction.Block) { player.hp -= 20; StartCoroutine(player.FlashRed()); }
-            else player.hp -= 5;
+            if (p != GameAction.Block) { player.hp -= 10; StartCoroutine(player.FlashRed()); }
+            else player.hp -= 15;
         }
     }
 }

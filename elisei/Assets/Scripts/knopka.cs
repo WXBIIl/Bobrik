@@ -7,9 +7,11 @@ public class knopka : MonoBehaviour
 {
     public void Transtion()
     {
-        SceneManager.LoadScene("Round");
-        PlayerPrefs.DeleteKey("TotalApples");
-
+        SceneManager.LoadScene("Round_1");
+    }
+    public void ToMenu()
+    {
+        SceneManager.LoadScene("menu");    
     }
     public void Vihod()
     {
