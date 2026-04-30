@@ -934,8 +934,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BossController
   hp: 200
   myImage: {fileID: 707228843}
-  normalSprite: {fileID: -8927244332663612829, guid: ac923754ed5311142bc2fd17f6a98335, type: 3}
-  blockSprite: {fileID: 8477893541577872580, guid: f3bda96f73d3b7242a2464b4c34d790b, type: 3}
+  normalSprite: {fileID: 4147795401338923468, guid: c319ec1ea49f02040a2efc99e8abfd1a, type: 3}
+  blockSprite: {fileID: 4147795401338923468, guid: c319ec1ea49f02040a2efc99e8abfd1a, type: 3}
   jumpHeight: 60
   moveDistance: 50
   bossPattern: 000000000100000002000000
