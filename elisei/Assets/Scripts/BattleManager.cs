@@ -44,6 +44,10 @@ public class BattleManager : MonoBehaviour
             {
                 SceneManager.LoadScene("Lose");
             }
+            if (boss.hp <= 0)
+            {
+                SceneManager.LoadScene("Round_2");
+            }
 
             yield return new WaitForSeconds(0.8f);
 
