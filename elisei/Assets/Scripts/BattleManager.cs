@@ -9,10 +9,22 @@ public class BattleManager : MonoBehaviour
     public BossController boss;
     public TextMeshProUGUI playerHPText;
     public TextMeshProUGUI bossHPText;
+    public int x=0;
 
+    public void Start()
+    {
+        if (SceneManager.GetActiveScene().buildIndex != 0)
+            PlayerPrefs.SetInt("idScene",SceneManager.GetActiveScene().buildIndex);
+    }
     public void StartRound()
     {
         StartCoroutine(PlayRound());
+    }
+
+    public void lvl()
+    {
+        Debug.Log(x);
+        SceneManager.LoadScene(PlayerPrefs.GetInt("idScene"));
     }
 
     IEnumerator PlayRound()
@@ -42,7 +54,10 @@ public class BattleManager : MonoBehaviour
 
             if (player.hp <= 0)
             {
+
+                Debug.Log(x);
                 SceneManager.LoadScene("Lose");
+
             }
             if (boss.hp <= 0)
             {
@@ -70,4 +85,5 @@ public class BattleManager : MonoBehaviour
             else player.hp -= 15;
         }
     }
+    
 }
