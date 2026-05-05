@@ -84,6 +84,14 @@ public class BattleManager : MonoBehaviour
             if (p != GameAction.Block) { player.hp -= 10; StartCoroutine(player.FlashRed()); }
             else player.hp -= 15;
         }
+        if(b==GameAction.Jump)
+        {
+            if (p != GameAction.Attack)
+            {
+                boss.hp += 10;
+            }
+            else boss.hp -= 15;
+        }
     }
     
 }
