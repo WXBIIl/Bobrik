@@ -1104,6 +1104,7 @@ MonoBehaviour:
   boss: {fileID: 707228842}
   playerHPText: {fileID: 1111592993}
   bossHPText: {fileID: 2092380400}
+  x: 0
 --- !u!4 &827636331
 Transform:
   m_ObjectHideFlags: 0
@@ -2035,7 +2036,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0429\u0418\u0422"
+  m_Text: Shit
 --- !u!222 &1917479094
 CanvasRenderer:
   m_ObjectHideFlags: 0
