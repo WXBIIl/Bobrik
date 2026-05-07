@@ -7,7 +7,7 @@ public class ErrorManager : MonoBehaviour
     [Header("Настройки UI")]
     public CanvasGroup errorPanelGroup; // Сюда перетащи объект ErrorPanel
     public Text errorText;              // Сюда перетащи текст внутри панели
-
+    private bool isShowing = false; // Флаг: показывается ли сейчас ошибка?
     private void Awake()
     {
         // В начале игры делаем панель полностью прозрачной
@@ -16,23 +16,26 @@ public class ErrorManager : MonoBehaviour
 
     public void ShowError(string message, float delay)
     {
-        StopAllCoroutines();
+        if (isShowing) return;
+
         StartCoroutine(FadeRoutine(message, delay));
     }
 
+
     private IEnumerator FadeRoutine(string message, float delay)
     {
+        isShowing = true;
         errorText.text = message;
         float fadeTime = 0.4f;
 
-        // Плавное появление панели и текста
         yield return StartCoroutine(Fade(0, 1, fadeTime));
 
-        // Ждем
+
         yield return new WaitForSeconds(delay);
 
-        // Плавное исчезновение
         yield return StartCoroutine(Fade(1, 0, fadeTime));
+
+        isShowing = false;
     }
 
     private IEnumerator Fade(float start, float end, float time)
