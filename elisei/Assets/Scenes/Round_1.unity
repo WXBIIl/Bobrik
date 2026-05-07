@@ -1013,7 +1013,7 @@ MonoBehaviour:
   blockSprite: {fileID: 8477893541577872580, guid: f3bda96f73d3b7242a2464b4c34d790b, type: 3}
   jumpHeight: 60
   moveDistance: 50
-  bossPattern: 000000000100000002000000
+  bossPattern: 020000000100000000000000000000000100000000000000020000000200000000000000
 --- !u!114 &707228843
 MonoBehaviour:
   m_ObjectHideFlags: 0

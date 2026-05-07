@@ -75,7 +75,7 @@ public class BattleManager : MonoBehaviour
     void CalculateDamage(GameAction p, GameAction b)
     {
         int playerBaseDamage = 40;
-        int bossBaseDamage = 10;
+        int bossBaseDamage = 40;
         int healAmount = 15;
 
         // --- кнцхйю дкъ хцпнйю (онксвемхе спнмю х ухк) ---
