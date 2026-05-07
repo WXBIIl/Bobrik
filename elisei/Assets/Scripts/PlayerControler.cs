@@ -9,7 +9,14 @@ public class PlayerController : Base
 
     public void AddAction(int id)
     {
-        mySequence.Add((GameAction)id);
+        if (mySequence.Count < 3)
+        {
+            mySequence.Add((GameAction)id);
+        }
+        else
+        {
+            Debug.Log("Все ты 3 действия ввел");
+        }
         UpdateUI();
     }
 
