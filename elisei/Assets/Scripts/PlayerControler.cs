@@ -9,18 +9,21 @@ public class PlayerController : Base
     public ErrorManager errorManager;
     public List<GameAction> mySequence = new List<GameAction>();
     public TextMeshProUGUI sequenceText;
+    bool repeat = true;
 
     public void AddAction(int id)
     {
-        if (mySequence.Count < 3)
-        {
-            mySequence.Add((GameAction)id);
-        }
-        else
-        {
-            errorManager.ShowError("Максимальное количество действий", 0.25f);
-        }
-        UpdateUI();
+
+            if (mySequence.Count < 5)
+            {
+                mySequence.Add((GameAction)id);
+            }
+            else
+            {
+                errorManager.ShowError("Максимальное количество действий", 0.25f);
+            }
+            UpdateUI();
+        
     }
 
     void UpdateUI()
