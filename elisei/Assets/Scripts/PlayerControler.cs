@@ -1,9 +1,12 @@
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : Base
 {
+    public ErrorManager errorManager;
     public List<GameAction> mySequence = new List<GameAction>();
     public TextMeshProUGUI sequenceText;
 
@@ -15,7 +18,7 @@ public class PlayerController : Base
         }
         else
         {
-            Debug.Log("Все ты 3 действия ввел");
+            errorManager.ShowError("Максимальное количество действий", 0.5f);
         }
         UpdateUI();
     }
