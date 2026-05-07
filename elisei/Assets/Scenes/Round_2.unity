@@ -1453,7 +1453,7 @@ MonoBehaviour:
   blockSprite: {fileID: 2054599395187436580, guid: f83ac7495b83fc8448b1a56546351427, type: 3}
   jumpHeight: 60
   moveDistance: 50
-  errorManager: {fileID: 0}
+  errorManager: {fileID: 1720022884}
   mySequence: 
   sequenceText: {fileID: 204921941}
 --- !u!114 &1021516708
@@ -1977,11 +1977,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1949568237}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1773878231}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 991, y: 446}
+  m_AnchoredPosition: {x: 31, y: -94}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1773878227
@@ -2091,6 +2091,7 @@ RectTransform:
   - {fileID: 309692335}
   - {fileID: 1103621703}
   - {fileID: 209784163}
+  - {fileID: 1720022885}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2485,5 +2486,4 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 1773878231}
-  - {fileID: 1720022885}
   - {fileID: 42591919}
