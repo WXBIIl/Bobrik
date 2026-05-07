@@ -18,7 +18,7 @@ public class PlayerController : Base
         }
         else
         {
-            errorManager.ShowError("Максимальное количество действий", 0.5f);
+            errorManager.ShowError("Максимальное количество действий", 0.25f);
         }
         UpdateUI();
     }

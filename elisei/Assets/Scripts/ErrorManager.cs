@@ -4,53 +4,46 @@ using System.Collections;
 
 public class ErrorManager : MonoBehaviour
 {
-    public Text errorText;
-    private CanvasGroup canvasGroup;
+    [Header("Настройки UI")]
+    public CanvasGroup errorPanelGroup; // Сюда перетащи объект ErrorPanel
+    public Text errorText;              // Сюда перетащи текст внутри панели
 
-    void Awake()
+    private void Awake()
     {
-        // Получаем компонент Canvas Group с объекта текста
-        canvasGroup = errorText.GetComponent<CanvasGroup>();
-        if (canvasGroup == null)
-        {
-            // Если забыл добавить в инспекторе — добавим сами
-            canvasGroup = errorText.gameObject.AddComponent<CanvasGroup>();
-        }
-        canvasGroup.alpha = 0; // Изначально невидим
+        // В начале игры делаем панель полностью прозрачной
+        if (errorPanelGroup != null) errorPanelGroup.alpha = 0;
     }
 
     public void ShowError(string message, float delay)
     {
         StopAllCoroutines();
-        StartCoroutine(FadeError(message, delay));
+        StartCoroutine(FadeRoutine(message, delay));
     }
 
-    private IEnumerator FadeError(string message, float delay)
+    private IEnumerator FadeRoutine(string message, float delay)
     {
         errorText.text = message;
-        float fadeDuration = 0.5f; // Длительность анимации появления/исчезновения
+        float fadeTime = 0.4f;
 
-        // 1. Появление (Fade In)
-        float currentTime = 0;
-        while (currentTime < fadeDuration)
-        {
-            currentTime += Time.deltaTime;
-            canvasGroup.alpha = Mathf.Lerp(0, 1, currentTime / fadeDuration);
-            yield return null;
-        }
-        canvasGroup.alpha = 1;
+        // Плавное появление панели и текста
+        yield return StartCoroutine(Fade(0, 1, fadeTime));
 
-        // 2. Ожидание
+        // Ждем
         yield return new WaitForSeconds(delay);
 
-        // 3. Исчезновение (Fade Out)
-        currentTime = 0;
-        while (currentTime < fadeDuration)
+        // Плавное исчезновение
+        yield return StartCoroutine(Fade(1, 0, fadeTime));
+    }
+
+    private IEnumerator Fade(float start, float end, float time)
+    {
+        float elapsed = 0;
+        while (elapsed < time)
         {
-            currentTime += Time.deltaTime;
-            canvasGroup.alpha = Mathf.Lerp(1, 0, currentTime / fadeDuration);
+            elapsed += Time.deltaTime;
+            errorPanelGroup.alpha = Mathf.Lerp(start, end, elapsed / time);
             yield return null;
         }
-        canvasGroup.alpha = 0;
+        errorPanelGroup.alpha = end;
     }
 }
