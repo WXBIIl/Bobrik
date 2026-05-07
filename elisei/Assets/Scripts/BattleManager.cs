@@ -74,23 +74,63 @@ public class BattleManager : MonoBehaviour
 
     void CalculateDamage(GameAction p, GameAction b)
     {
-        if (p == GameAction.Attack || p == GameAction.Jump)
+        int playerBaseDamage = 40;
+        int bossBaseDamage = 10;
+        int healAmount = 15;
+
+        // --- ЛОГИКА ДЛЯ ИГРОКА (ПОЛУЧЕНИЕ УРОНА И ХИЛ) ---
+        if (p == GameAction.Jump)
         {
-            if (b != GameAction.Block) { boss.hp -= 40; StartCoroutine(boss.FlashRed()); }
-            else boss.hp -= 15;
+            player.hp += healAmount; // Прыжок хилит
         }
-        if (b == GameAction.Attack || b == GameAction.Jump)
+
+        if (b == GameAction.Attack)
         {
-            if (p != GameAction.Block) { player.hp -= 10; StartCoroutine(player.FlashRed()); }
-            else player.hp -= 15;
-        }
-        if(b==GameAction.Jump)
-        {
-            if (p != GameAction.Attack)
+            if (p == GameAction.Block)
             {
-                boss.hp += 10;
+                // Под щитом урон не идет
             }
-            else boss.hp -= 15;
+            else if (p == GameAction.Jump)
+            {
+                // Если босс бьет прыгающего игрока — урон х2
+                player.hp -= bossBaseDamage * 2;
+                StartCoroutine(player.FlashRed());
+            }
+            else
+            {
+                // Обычный урон
+                player.hp -= bossBaseDamage;
+                StartCoroutine(player.FlashRed());
+            }
+        }
+
+        // --- ЛОГИКА ДЛЯ БОССА (ПОЛУЧЕНИЕ УРОНА И ХИЛ) ---
+        if (b == GameAction.Jump)
+        {
+            boss.hp += healAmount; // Прыжок хилит
+        }
+
+        if (p == GameAction.Attack)
+        {
+            if (b == GameAction.Block)
+            {
+                // Под щитом урон не идет
+            }
+            else if (b == GameAction.Jump)
+            {
+                // Если игрок бьет прыгающего босса — урон х2 от обычного (40 * 2 = 80)
+                // Но ты просил "боссу в два раза меньше", если это про обычную атаку, 
+                // то х2 от "половины" — это будет просто полный урон (40).
+                // Давай сделаем х2 от его текущего входящего урона:
+                boss.hp -= (playerBaseDamage / 2) * 2;
+                StartCoroutine(boss.FlashRed());
+            }
+            else
+            {
+                // Обычная атака по боссу — всегда в 2 раза меньше базовой
+                boss.hp -= playerBaseDamage / 2;
+                StartCoroutine(boss.FlashRed());
+            }
         }
     }
     
