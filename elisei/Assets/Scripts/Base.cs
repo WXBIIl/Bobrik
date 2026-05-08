@@ -5,7 +5,6 @@ using System.Collections;
 public class Base : MonoBehaviour
 {
     public int hp = 100;
-    public Image myImage;
     public Sprite normalSprite;
     public Sprite blockSprite;
 
@@ -48,10 +47,5 @@ public class Base : MonoBehaviour
         transform.localPosition = startPos;
     }
 
-    public IEnumerator FlashRed()
-    {
-        myImage.color = Color.red;
-        yield return new WaitForSeconds(0.3f);
-        myImage.color = Color.white;
-    }
+
 }

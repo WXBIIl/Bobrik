@@ -10,7 +10,6 @@ public class BattleManager : MonoBehaviour
     public TextMeshProUGUI playerHPText;
     public TextMeshProUGUI bossHPText;
     public int x=0;
-    bool repeat = true;
 
     public void Start()
     {
@@ -38,8 +37,6 @@ public class BattleManager : MonoBehaviour
                 GameAction pAct = player.mySequence[i];
                 GameAction bAct = boss.bossPattern[i % boss.bossPattern.Count];
 
-                player.myImage.sprite = (pAct == GameAction.Block) ? player.blockSprite : player.normalSprite;
-                boss.myImage.sprite = (bAct == GameAction.Block) ? boss.blockSprite : boss.normalSprite;
 
                 if (pAct == GameAction.Attack) StartCoroutine(player.AnimateAttack(false));
                 if (pAct == GameAction.Jump) StartCoroutine(player.AnimateJump());
@@ -68,8 +65,6 @@ public class BattleManager : MonoBehaviour
 
                 yield return new WaitForSeconds(0.8f);
 
-                player.myImage.sprite = player.normalSprite;
-                boss.myImage.sprite = boss.normalSprite;
             }
           
         }
@@ -98,13 +93,11 @@ public class BattleManager : MonoBehaviour
             {
                 // ≈сли босс бьет прыгающего игрока Ч урон х2
                 player.hp -= bossBaseDamage * 2;
-                StartCoroutine(player.FlashRed());
             }
             else
             {
                 // ќбычный урон
                 player.hp -= bossBaseDamage;
-                StartCoroutine(player.FlashRed());
             }
         }
 
@@ -127,13 +120,11 @@ public class BattleManager : MonoBehaviour
                 // то х2 от "половины" Ч это будет просто полный урон (40).
                 // ƒавай сделаем х2 от его текущего вход€щего урона:
                 boss.hp -= (playerBaseDamage / 2) * 2;
-                StartCoroutine(boss.FlashRed());
             }
             else
             {
                 // ќбычна€ атака по боссу Ч всегда в 2 раза меньше базовой
                 boss.hp -= playerBaseDamage / 2;
-                StartCoroutine(boss.FlashRed());
             }
         }
     }
