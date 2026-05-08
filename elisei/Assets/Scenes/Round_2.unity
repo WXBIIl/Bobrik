@@ -498,7 +498,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1367491348}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: AddAction
         m_Mode: 3
@@ -631,7 +631,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1367491348}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: AddAction
         m_Mode: 3
@@ -1010,8 +1010,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01361b5db74753343accf3c8a5f8395e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BattleManager
-  player: {fileID: 0}
-  boss: {fileID: 0}
+  player: {fileID: 1367491348}
+  boss: {fileID: 1795594487}
   playerHPText: {fileID: 1111592993}
   bossHPText: {fileID: 2092380400}
   x: 0
@@ -1404,7 +1404,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1367491348}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: AddAction
         m_Mode: 3
@@ -1701,7 +1701,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 436, y: -225}
+  m_AnchoredPosition: {x: 447, y: -228}
   m_SizeDelta: {x: 140, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1367491348
@@ -1721,9 +1721,9 @@ MonoBehaviour:
   blockSprite: {fileID: 2054599395187436580, guid: f83ac7495b83fc8448b1a56546351427, type: 3}
   jumpHeight: 60
   moveDistance: 50
-  errorManager: {fileID: 0}
+  errorManager: {fileID: 1720022884}
   mySequence: 
-  sequenceText: {fileID: 0}
+  sequenceText: {fileID: 204921941}
 --- !u!212 &1367491349
 SpriteRenderer:
   serializedVersion: 2
@@ -1877,7 +1877,7 @@ GameObject:
   - component: {fileID: 1720022885}
   - component: {fileID: 1720022884}
   m_Layer: 5
-  m_Name: GameObject (1)
+  m_Name: error
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
