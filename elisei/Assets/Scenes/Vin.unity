@@ -386,13 +386,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1745737881}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1745737883}
+        m_TargetAssemblyTypeName: knopka, Assembly-CSharp
+        m_MethodName: MainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -635,14 +635,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1745737881}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01361b5db74753343accf3c8a5f8395e, type: 3}
+  m_Script: {fileID: 11500000, guid: b7e4508d90f765b468718da68fc2a25a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BattleManager
-  player: {fileID: 0}
-  boss: {fileID: 0}
-  playerHPText: {fileID: 0}
-  bossHPText: {fileID: 0}
-  x: 0
+  m_EditorClassIdentifier: Assembly-CSharp::knopka
 --- !u!1 &1759886579
 GameObject:
   m_ObjectHideFlags: 0

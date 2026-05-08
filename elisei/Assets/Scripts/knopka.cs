@@ -10,6 +10,10 @@ public class knopka : MonoBehaviour
     {
         SceneManager.LoadScene("Round_1");
     }
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("menu");
+    }
 
     public void Vihod()
     {
