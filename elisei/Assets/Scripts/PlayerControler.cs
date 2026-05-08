@@ -9,7 +9,6 @@ public class PlayerController : Base
     public ErrorManager errorManager;
     public List<GameAction> mySequence = new List<GameAction>();
     public TextMeshProUGUI sequenceText;
-    bool repeat = true;
 
     public void AddAction(int id)
     {
