@@ -12,6 +12,7 @@ public class BattleManager : MonoBehaviour
     public int x=0;
     public Animator healAnim;
     public Animator AtakAnim;
+    public Animator blockAnim;
 
     public void Start()
     {
@@ -72,6 +73,22 @@ public class BattleManager : MonoBehaviour
                     }
 
                 }
+
+
+                if (pAct == GameAction.Block)
+                {
+                    if (AtakAnim != null)
+                    {
+                        player.GetComponent<SpriteRenderer>().enabled = false;
+
+                        blockAnim.gameObject.SetActive(true);
+                        Animator realAnimator = blockAnim.GetComponent<Animator>();
+                        realAnimator.SetTrigger("PlayBlock");
+
+                        StartCoroutine(FinishAnimation(blockAnim.gameObject, 1f));
+                    }
+                }
+
                 if (bAct == GameAction.Attack) StartCoroutine(boss.AnimateAttack(true));
                 if (bAct == GameAction.Jump) StartCoroutine(boss.AnimateJump());
 
