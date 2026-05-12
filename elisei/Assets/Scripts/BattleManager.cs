@@ -10,6 +10,7 @@ public class BattleManager : MonoBehaviour
     public TextMeshProUGUI playerHPText;
     public TextMeshProUGUI bossHPText;
     public int x=0;
+    public Animator healAnim;
 
     public void Start()
     {
@@ -39,8 +40,25 @@ public class BattleManager : MonoBehaviour
 
 
                 if (pAct == GameAction.Attack) StartCoroutine(player.AnimateAttack(false));
-                if (pAct == GameAction.Jump) StartCoroutine(player.AnimateJump());
+                if (pAct == GameAction.Jump)
+                {
+                    if (healAnim != null)
+                    {
+                        // Принудительно берем компонент заново, чтобы исключить "битую" ссылку
+                        Animator realAnimator = healAnim.GetComponent<Animator>();
 
+                        if (realAnimator != null && realAnimator.runtimeAnimatorController != null)
+                        {
+                            realAnimator.SetTrigger("PlayHeal");
+                            Debug.Log("Триггер отправлен успешно!");
+                        }
+                        else
+                        {
+                            Debug.LogError("Контроллер внезапно исчез с объекта!");
+                        }
+                    }
+
+                }
                 if (bAct == GameAction.Attack) StartCoroutine(boss.AnimateAttack(true));
                 if (bAct == GameAction.Jump) StartCoroutine(boss.AnimateJump());
 
