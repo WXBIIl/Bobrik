@@ -55,7 +55,7 @@ public class BattleManager : MonoBehaviour
                 {
 
                     Debug.Log(x);
-                    SceneManager.LoadScene("Lose");
+                    SceneManager.LoadScene("Lose"); 
 
                 }
                 if (boss.hp <= 0)
