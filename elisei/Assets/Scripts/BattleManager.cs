@@ -11,6 +11,7 @@ public class BattleManager : MonoBehaviour
     public TextMeshProUGUI bossHPText;
     public int x=0;
     public Animator healAnim;
+    public Animator AtakAnim;
 
     public void Start()
     {
@@ -39,7 +40,24 @@ public class BattleManager : MonoBehaviour
                 GameAction bAct = boss.bossPattern[i % boss.bossPattern.Count];
 
 
-                if (pAct == GameAction.Attack) StartCoroutine(player.AnimateAttack(false));
+                if (pAct == GameAction.Attack)
+                {
+                    if (AtakAnim != null)
+                    {
+                        // Прячем игрока
+                        player.GetComponent<SpriteRenderer>().enabled = false;
+
+                        // Включаем и запускаем анимацию
+                        AtakAnim.gameObject.SetActive(true);
+                        Animator realAnimator = AtakAnim.GetComponent<Animator>();
+                        realAnimator.SetTrigger("PlayAttack");
+
+                        // ЗАПУСК ОЖИДАНИЯ:
+                        // Вместо 1.0f поставь длительность своей анимации в секундах
+                        StartCoroutine(FinishAnimation(AtakAnim.gameObject, 1.3f));
+                    }
+                }
+
                 if (pAct == GameAction.Jump)
                 {
                     if (healAnim != null)
@@ -88,6 +106,7 @@ public class BattleManager : MonoBehaviour
         }
         player.Clear();
     }
+
 
     void CalculateDamage(GameAction p, GameAction b)
     {
@@ -146,5 +165,16 @@ public class BattleManager : MonoBehaviour
             }
         }
     }
-    
+    IEnumerator FinishAnimation(GameObject animObj, float delay)
+    {
+        // Ждем столько секунд, сколько длится твоя анимация
+        yield return new WaitForSeconds(delay);
+
+        // 1. Выключаем объект с анимацией (снимаем галочку)
+        animObj.SetActive(false);
+
+        // 2. Возвращаем видимость основному игроку (ставим галочку обратно)
+        player.GetComponent<SpriteRenderer>().enabled = true;
+    }
+
 }
