@@ -10,9 +10,13 @@ public class BattleManager : MonoBehaviour
     public TextMeshProUGUI playerHPText;
     public TextMeshProUGUI bossHPText;
     public int x=0;
+    
     public Animator healAnim;
     public Animator AtakAnim;
     public Animator blockAnim;
+
+    public Animator bBOSSAnim;
+    public Animator bossBlockAnim;
 
     public void Start()
     {
@@ -45,7 +49,9 @@ public class BattleManager : MonoBehaviour
                 {
                     if (AtakAnim != null)
                     {
+
                         player.GetComponent<SpriteRenderer>().enabled = false;
+
 
                         AtakAnim.gameObject.SetActive(true);
                         Animator realAnimator = AtakAnim.GetComponent<Animator>();
@@ -85,7 +91,32 @@ public class BattleManager : MonoBehaviour
                     }
                 }
 
-                if (bAct == GameAction.Attack) StartCoroutine(boss.AnimateAttack(true));
+                if (bAct == GameAction.Block && pAct == GameAction.Attack)
+                {
+                    if (bBOSSAnim != null)
+                    {
+
+                        bBOSSAnim.gameObject.SetActive(true);
+                        Animator realAnimator = bBOSSAnim.GetComponent<Animator>();
+                        realAnimator.SetTrigger("PlayBOSSAttack");
+
+                        StartCoroutine(FinishAnimation(bBOSSAnim.gameObject, 1.3f));
+                    }
+                }
+                else if(bAct == GameAction.Block && pAct != GameAction.Attack)
+                {
+                    if (bossBlockAnim != null)
+                    {
+
+                        bossBlockAnim.gameObject.SetActive(true);
+                        Animator realAnimator = bossBlockAnim.GetComponent<Animator>();
+                        realAnimator.SetTrigger("PlayBOSSAtt");
+
+                        StartCoroutine(FinishAnimation(bossBlockAnim.gameObject, 1f));
+                    }
+                }
+
+
                 if (bAct == GameAction.Heal) StartCoroutine(boss.AnimateJump());
 
                 yield return new WaitForSeconds(0.7f);
