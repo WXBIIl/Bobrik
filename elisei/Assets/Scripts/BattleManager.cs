@@ -10,13 +10,16 @@ public class BattleManager : MonoBehaviour
     public TextMeshProUGUI playerHPText;
     public TextMeshProUGUI bossHPText;
     public int x=0;
-    
+
+    [Header("Анимации игрока")]
     public Animator healAnim;
     public Animator AtakAnim;
     public Animator blockAnim;
 
+    [Header("Анимации Boss'а")]
     public Animator bBOSSAnim;
     public Animator bossBlockAnim;
+    public Animator dragonAttackAnim;
 
     public void Start()
     {
@@ -88,6 +91,22 @@ public class BattleManager : MonoBehaviour
                         realAnimator.SetTrigger("PlayBlock");
 
                         StartCoroutine(FinishAnimation(blockAnim.gameObject, 1f));
+                    }
+                }
+
+                if (bAct == GameAction.Attack )
+                {
+                    if (dragonAttackAnim != null)
+                    {
+
+                        boss.GetComponent<SpriteRenderer>().enabled = false;
+
+
+                        dragonAttackAnim.gameObject.SetActive(true);
+                        Animator realAnimator = dragonAttackAnim.GetComponent<Animator>();
+                        realAnimator.SetTrigger("BOSSAttack");
+
+                        StartCoroutine(FinishAnimation(dragonAttackAnim.gameObject, 1.3f));
                     }
                 }
 
@@ -205,6 +224,7 @@ public class BattleManager : MonoBehaviour
 
         // 2. Возвращаем видимость основному игроку (ставим галочку обратно)
         player.GetComponent<SpriteRenderer>().enabled = true;
+        boss.GetComponent<SpriteRenderer>().enabled = true;
     }
 
 }
