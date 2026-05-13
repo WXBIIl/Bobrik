@@ -8,6 +8,11 @@ public class ErrorManager : MonoBehaviour
     public CanvasGroup errorPanelGroup; // Сюда перетащи объект ErrorPanel
     public Text errorText;              // Сюда перетащи текст внутри панели
     private bool isShowing = false; // Флаг: показывается ли сейчас ошибка?
+
+    public AudioSource myFx;
+    public AudioClip hoverFX;
+    public AudioClip pressedFX;
+
     private void Awake()
     {
         // В начале игры делаем панель полностью прозрачной
@@ -19,12 +24,14 @@ public class ErrorManager : MonoBehaviour
         if (isShowing) return;
 
         StartCoroutine(FadeRoutine(message, delay));
+
     }
 
 
     private IEnumerator FadeRoutine(string message, float delay)
     {
         isShowing = true;
+        myFx.PlayOneShot(pressedFX);
         errorText.text = message;
         float fadeTime = 0.4f;
 

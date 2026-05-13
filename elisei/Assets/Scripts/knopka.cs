@@ -8,6 +8,7 @@ public class knopka : MonoBehaviour
 
     public void Transtion()
     {
+
         SceneManager.LoadScene("Round_1");
     }
     public void MainMenu()
@@ -19,4 +20,5 @@ public class knopka : MonoBehaviour
     {
         Application.Quit();
     }
+
 }

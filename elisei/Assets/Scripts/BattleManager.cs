@@ -20,6 +20,7 @@ public class BattleManager : MonoBehaviour
     public Animator bBOSSAnim;
     public Animator bossBlockAnim;
     public Animator dragonAttackAnim;
+    public Animator dragonHealAnim;
 
     public void Start()
     {
@@ -136,7 +137,18 @@ public class BattleManager : MonoBehaviour
                 }
 
 
-                if (bAct == GameAction.Heal) StartCoroutine(boss.AnimateJump());
+                if (bAct == GameAction.Heal)
+                {
+                    if (dragonHealAnim != null)
+                    {
+
+                        dragonHealAnim.gameObject.SetActive(true);
+                        Animator realAnimator = dragonHealAnim.GetComponent<Animator>();
+                        realAnimator.SetTrigger("BOSSHeal");
+
+                        StartCoroutine(FinishAnimation(dragonHealAnim.gameObject, 1.4f));
+                    }
+                }
 
                 yield return new WaitForSeconds(1.5f);
 
