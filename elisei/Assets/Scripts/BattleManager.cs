@@ -21,7 +21,7 @@ public class BattleManager : MonoBehaviour
     }
     public void StartRound()
     {
-            StartCoroutine(PlayRound());
+        StartCoroutine(PlayRound());
     }
 
     public void lvl()
@@ -55,24 +55,20 @@ public class BattleManager : MonoBehaviour
                     }
                 }
 
-                if (pAct == GameAction.Jump)
+                if (pAct == GameAction.Heal)
                 {
                     if (healAnim != null)
                     {
+
+                        healAnim.gameObject.SetActive(true);
                         Animator realAnimator = healAnim.GetComponent<Animator>();
+                        realAnimator.SetTrigger("PlayAttack");
 
-                        if (realAnimator != null && realAnimator.runtimeAnimatorController != null)
-                        {
-                            realAnimator.SetTrigger("PlayHeal");
-                            Debug.Log("Триггер отправлен успешно!");
-                        }
-                        else
-                        {
-                            Debug.LogError("Контроллер внезапно исчез с объекта!");
-                        }
+                        StartCoroutine(FinishAnimation(healAnim.gameObject, 1.3f));
                     }
-
                 }
+
+               
 
 
                 if (pAct == GameAction.Block)
@@ -90,7 +86,7 @@ public class BattleManager : MonoBehaviour
                 }
 
                 if (bAct == GameAction.Attack) StartCoroutine(boss.AnimateAttack(true));
-                if (bAct == GameAction.Jump) StartCoroutine(boss.AnimateJump());
+                if (bAct == GameAction.Heal) StartCoroutine(boss.AnimateJump());
 
                 yield return new WaitForSeconds(0.7f);
 
@@ -126,7 +122,7 @@ public class BattleManager : MonoBehaviour
         int bossBaseDamage = 40;
         int healAmount = 15;
 
-        if (p == GameAction.Jump)
+        if (p == GameAction.Heal)
         {
             player.hp += healAmount;
         }
@@ -137,7 +133,7 @@ public class BattleManager : MonoBehaviour
             {
 
             }
-            else if (p == GameAction.Jump)
+            else if (p == GameAction.Heal)
             {
                 player.hp -= bossBaseDamage * 2;
             }
@@ -147,7 +143,7 @@ public class BattleManager : MonoBehaviour
             }
         }
 
-        if (b == GameAction.Jump)
+        if (b == GameAction.Heal)
         {
             boss.hp += healAmount; 
         }
@@ -158,7 +154,7 @@ public class BattleManager : MonoBehaviour
             {
 
             }
-            else if (b == GameAction.Jump)
+            else if (b == GameAction.Heal)
             {
                 boss.hp -= (playerBaseDamage / 2) * 2;
             }
