@@ -3110,13 +3110,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 707228845}
     m_Modifications:
+    - target: {fileID: 1449999800356598571, guid: e487dca72cbb2fd49b61696db2aa8c91, type: 3}
+      propertyPath: m_SortingOrder
+      value: 117
+      objectReference: {fileID: 0}
     - target: {fileID: 6240918880789089937, guid: e487dca72cbb2fd49b61696db2aa8c91, type: 3}
       propertyPath: m_Name
-      value: dragonAttack
+      value: dragonAttack1
       objectReference: {fileID: 0}
     - target: {fileID: 6240918880789089937, guid: e487dca72cbb2fd49b61696db2aa8c91, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8160683289275017595, guid: e487dca72cbb2fd49b61696db2aa8c91, type: 3}
       propertyPath: m_Pivot.x

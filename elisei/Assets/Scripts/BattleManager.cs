@@ -138,7 +138,7 @@ public class BattleManager : MonoBehaviour
 
                 if (bAct == GameAction.Heal) StartCoroutine(boss.AnimateJump());
 
-                yield return new WaitForSeconds(0.7f);
+                yield return new WaitForSeconds(1.5f);
 
                 CalculateDamage(pAct, bAct);
 
@@ -224,6 +224,7 @@ public class BattleManager : MonoBehaviour
 
         // 2. Возвращаем видимость основному игроку (ставим галочку обратно)
         player.GetComponent<SpriteRenderer>().enabled = true;
+        yield return new WaitForSeconds(0.3f);
         boss.GetComponent<SpriteRenderer>().enabled = true;
     }
 
