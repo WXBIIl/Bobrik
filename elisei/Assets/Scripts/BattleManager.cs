@@ -102,7 +102,6 @@ public class BattleManager : MonoBehaviour
 
                         boss.GetComponent<SpriteRenderer>().enabled = false;
 
-
                         dragonAttackAnim.gameObject.SetActive(true);
                         Animator realAnimator = dragonAttackAnim.GetComponent<Animator>();
                         realAnimator.SetTrigger("BOSSAttack");
