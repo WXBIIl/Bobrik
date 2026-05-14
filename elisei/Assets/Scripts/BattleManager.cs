@@ -184,9 +184,13 @@ public class BattleManager : MonoBehaviour
         int bossBaseDamage = 40;
         int healAmount = 15;
 
-        if (p == GameAction.Heal)
+        if (p == GameAction.Heal && b!=GameAction.Attack)
         {
             player.hp += healAmount;
+        }
+        else if (p == GameAction.Heal && b==GameAction.Attack)
+        {
+            player.hp -= healAmount;
         }
 
         if (b == GameAction.Attack)
@@ -205,9 +209,13 @@ public class BattleManager : MonoBehaviour
             }
         }
 
-        if (b == GameAction.Heal)
+        if (b == GameAction.Heal && p != GameAction.Attack)
         {
-            boss.hp += healAmount; 
+            player.hp += healAmount;
+        }
+        else if (b == GameAction.Heal && p == GameAction.Attack)
+        {
+            player.hp -= healAmount;
         }
 
         if (p == GameAction.Attack)
