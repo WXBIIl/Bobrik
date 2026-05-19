@@ -190,7 +190,7 @@ public class BattleManager : MonoBehaviour
         }
         else if (p == GameAction.Heal && b==GameAction.Attack)
         {
-            player.hp -= healAmount;
+
         }
 
         if (b == GameAction.Attack)
@@ -211,11 +211,11 @@ public class BattleManager : MonoBehaviour
 
         if (b == GameAction.Heal && p != GameAction.Attack)
         {
-            player.hp += healAmount;
+            boss.hp += healAmount;
         }
         else if (b == GameAction.Heal && p == GameAction.Attack)
         {
-            player.hp -= healAmount;
+
         }
 
         if (p == GameAction.Attack)
