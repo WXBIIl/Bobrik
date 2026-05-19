@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 4363ede56eca4d0449f68558014c121b
+guid: be1c60be940aa0a4588dba5322814d8b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2382737625400974382
-    second: Gemini_Generated_Image_lab39glab39glab3_0
+      213: -3027779083930269253
+    second: ClownBlock_0
   - first:
-      213: -956269475601806440
-    second: Gemini_Generated_Image_lab39glab39glab3_1
+      213: -2484332057337220698
+    second: ClownBlock_1
   - first:
-      213: -3456066686118803482
-    second: Gemini_Generated_Image_lab39glab39glab3_2
+      213: 3621176368679908353
+    second: ClownBlock_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -106,13 +106,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Gemini_Generated_Image_lab39glab39glab3_0
+      name: ClownBlock_0
       rect:
         serializedVersion: 2
-        x: 154
-        y: 104
-        width: 690
-        height: 735
+        x: 13
+        y: 138
+        width: 928
+        height: 751
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,20 +121,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e2c9bfafe3f211120800000000000000
-      internalID: 2382737625400974382
+      spriteID: bb98afb07fa2bf5d0800000000000000
+      internalID: -3027779083930269253
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gemini_Generated_Image_lab39glab39glab3_1
+      name: ClownBlock_1
       rect:
         serializedVersion: 2
-        x: 642
-        y: 173
-        width: 340
-        height: 551
+        x: 994
+        y: 121
+        width: 929
+        height: 858
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,20 +143,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 89b843d7af5aab2f0800000000000000
-      internalID: -956269475601806440
+      spriteID: 6a1bc4a0821e58dd0800000000000000
+      internalID: -2484332057337220698
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gemini_Generated_Image_lab39glab39glab3_2
+      name: ClownBlock_2
       rect:
         serializedVersion: 2
-        x: 1165
-        y: 31
-        width: 50
-        height: 50
+        x: 1959
+        y: 112
+        width: 917
+        height: 880
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,8 +165,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6e7c3d5f8a59900d0800000000000000
-      internalID: -3456066686118803482
+      spriteID: 1047434b8b0014230800000000000000
+      internalID: 3621176368679908353
       vertices: []
       indices: 
       edges: []
@@ -185,9 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Gemini_Generated_Image_lab39glab39glab3_0: 2382737625400974382
-      Gemini_Generated_Image_lab39glab39glab3_1: -956269475601806440
-      Gemini_Generated_Image_lab39glab39glab3_2: -3456066686118803482
+      ClownBlock_0: -3027779083930269253
+      ClownBlock_1: -2484332057337220698
+      ClownBlock_2: 3621176368679908353
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
